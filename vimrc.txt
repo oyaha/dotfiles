@@ -1,0 +1,178 @@
+set runtimepath+=~/.vim/bundle/neobundle.vim
+
+
+call neobundle#begin(expand('~/.vim.bundle/'))
+
+if neobundle#load_cache()
+	NeoBundleFetch 'Shougo/neobundle.vim'
+	call neobundle#load_toml('~/.vim/neobundle.toml')
+	NeoBundleSaveCache
+endif
+
+
+NeoBundle 'Townk/vim-autoclose'
+NeoBundle 'mattn/emmet-vim'
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'grep.vim'
+NeoBundle 'drillbits/nyan-modoki.vim'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'itchyny/lightline.vim'
+NeoBundle 'justmao945/vim-clang'
+
+
+call neobundle#end()
+filetype plugin indent on
+
+NeoBundleCheck
+
+
+
+"画面表示の設定
+set laststatus=2   " ステータス行を常に表示
+set cmdheight=2    " メッセージ表示欄を2行確保
+set showmatch      " 対応する括弧を強調表示
+set helpheight=999 " ヘルプを画面いっぱいに開く
+
+"色つけ
+syntax on
+
+"行番号
+set number
+
+"移動
+imap <C-a> <Home>
+imap <C-e>  <End>
+imap <C-b>  <Left>
+imap <C-f>  <Right>
+imap <C-n>  <Down>
+imap <C-p>  <UP>
+
+"消去
+imap <C-k> <Esc>d$i
+
+"ファイル
+imap <C-c><C-c>  <ESC>:qa<CR>
+imap <C-w><C-w>  <ESC>:w<CR>
+imap <C-x><C-w>  <ESC>:w!<CR>
+imap <C-x><C-f>  <ESC>:e 
+
+"コマンド入力中断
+
+
+"タブ設定
+set expandtab
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set smarttab
+
+"INDENT
+set autoindent
+set smartindent
+
+
+
+"折り返しでインデントを保持
+if exists('+breakindent')
+		set breakindent
+endif
+
+
+"escからc-jに変更
+imap <c-l> <esc>
+
+"コマンドラインの設定
+set wildmenu wildmode=list:longest,full
+
+"バックスペースの有効化
+set backspace=indent,eol,start
+						
+
+
+" set clang options for vim-clang
+let g:clang_c_options = '-std=c11'
+let g:clang_cpp_options = '-std=c++1z -stdlib=libc++ --pedantic-errors'
+
+"マウス操作を可能にする
+"if has('mouse')
+"	set mouse=a
+" if has('mouse_sgr')
+"	set ttymouse=sgr
+" elseif v:version > 703 || v:version is 703 && has('patch632')
+"	set ttymouse=sgr
+" else
+"	set ttymouse=xterm2
+" endif
+"endif
+
+
+
+"C/C++の補完プラグイン"
+let g:neocomplete#enable_at_startup = 1
+
+if !exists('g:neocomplete#force_omni_input_patterns')
+      let g:neocomplete#force_omni_input_patterns = {} 
+  endif
+  let g:neocomplete#force_overwrite_completefunc = 1
+  let g:neocomplete#force_omni_input_patterns.c =
+              \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
+  let g:neocomplete#force_omni_input_patterns.cpp =
+        \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+
+"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
